@@ -1,0 +1,165 @@
+
+
+
+
+/*Modal scss*/
+.optionGameModeView{
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  button{
+    width: 215px;
+    height: 200px;
+    border-radius: 50%;
+    border: 15px solid;
+    transition: transform 0.3s ease;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+  :nth-child(1){
+    border-color: var(--paper-);
+  }
+  :nth-child(2){
+    border-color: var(--scissors-);
+  }
+}
+@media screen and (min-width: 500px) {
+  .optionGameModeView{
+    flex-direction: row;
+    margin-top: 12%;
+  }
+}
+// Step 1
+.menu-container{
+  height: 100vh;
+  background: var(--radial-gradient);
+  padding: 0 25px;
+  display: grid;
+  // align-items: center;
+  justify-items: center;
+}
+
+app-header{
+  width: 100%;
+  max-width: 700px;
+}
+.options-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: url('../assets/images/bg-triangle.svg') no-repeat center / 253px 170px;
+
+  width: 100%;
+  height: 280px;
+  max-width: 415px;
+  column-gap: 30px;
+}
+.bonus-class-config{
+  background: url('../assets/images/bg-triangle.svg') no-repeat center / 353px 270px;
+  row-gap: 20px;
+  height: auto;
+}
+@media screen and (min-width: 800px) {
+  .options-container{
+
+    background: url('../assets/images/bg-triangle.svg') no-repeat center / 313px 200px;
+
+  }
+  .bonus-class-config{
+    background: url('../assets/images/bg-triangle.svg') no-repeat center / 343px 246px;
+  }
+}
+.icon-option-container{
+  width: 120px;
+  height: 110px;
+  border: 12px solid;
+  border-radius: 50%;
+  background-size: 39px 49px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+.btn-icons{
+  transition: transform 0.3s ease;
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+.paper-icon{
+  background-image: url("../assets/images/icon-paper.svg");
+  border-color: var(--paper-);
+}
+.scissors-icon{
+  background-image: url("../assets/images/icon-scissors.svg");
+  border-color: var(--scissors-);
+}
+.spock-icon{
+  background-image: url("../assets/images/icon-spock.svg");
+  border-color: var(--cyan);
+}
+.lizard-icon{
+  background-image: url("../assets/images/icon-lizard.svg");
+  border-color: var(--lizard-);
+}
+.rock-icon{
+  background-image: url("../assets/images/icon-rock.svg");
+  background-size: 39px 39px;
+  border-color: var(--rock-);
+}
+.button-rule{
+  display: flex;
+  button{
+    margin: 0 auto;
+    font-size: 15px;
+    width: 120px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    letter-spacing: 2px;
+  }
+  margin-bottom: 25px;
+}
+.options-selected-container{
+    width: 100%;
+    max-width: 450px;
+}
+
+app-game-selections{
+  display:flex;
+  justify-content: space-between;
+}
+
+.icon-option-container{
+  background-color: white;
+}
+.icon-option-text{
+  font-size: 15px;
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+}
+
+.second-player-selection{
+  .empty-option{
+      border: 0;
+      background-color: hsl(213, 71%, 12%);
+      margin: 14px 0 30px 0;
+      animation: pulse 1s infinite ease-in-out;
+  }
+}
+
+.d-none{
+  display: none;
+}
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}

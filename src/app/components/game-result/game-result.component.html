@@ -1,0 +1,7 @@
+<div class="result-restart-match">
+  <p class="result-restart-match-text" *ngIf="isFirstPlayerTheWinner; else firstPlayerLose">YOU WIN</p>
+  <ng-template #firstPlayerLose>
+    <p class="result-restart-match-text">YOU LOSE</p>
+  </ng-template>
+  <button (click)="restartGame()">PLAY AGAIN</button>
+</div>

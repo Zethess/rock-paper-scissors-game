@@ -1,0 +1,9 @@
+<div class="first-player-selection">
+  <div [ngClass]="firstPlayerSelection"  class="icon-option-container"></div>
+  <p class="icon-option-text">YOU PICKED</p>
+</div>
+<div class="second-player-selection">
+  <div *ngIf="secondPlayerSelection === ''" class="icon-option-container empty-option" ></div>
+  <div *ngIf="secondPlayerSelection !== ''" [ngClass]="secondPlayerSelection"  class="icon-option-container" ></div>
+  <P class="icon-option-text">THE HOUSE PICKED</P>
+</div>

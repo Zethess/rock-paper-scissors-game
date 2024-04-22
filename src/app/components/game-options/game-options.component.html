@@ -1,0 +1,7 @@
+<div class="options-container" [ngClass]="{'bonus-class-config': !isOriginalGame}">
+  <button  class="icon-option-container btn-icons paper-icon" (click)="selectedOption('paper-icon')"></button>
+  <button  class="icon-option-container btn-icons scissors-icon" (click)="selectedOption('scissors-icon')"></button>
+  <button  class="icon-option-container btn-icons rock-icon" (click)="selectedOption('rock-icon')"></button>
+  <button *ngIf="!isOriginalGame"  class="icon-option-container btn-icons lizard-icon" (click)="selectedOption('lizard-icon')"></button>
+  <button *ngIf="!isOriginalGame" class="icon-option-container btn-icons spock-icon" (click)="selectedOption('spock-icon')"></button>
+</div>
