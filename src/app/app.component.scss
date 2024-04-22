@@ -4,7 +4,7 @@
 
 /*Modal scss*/
 .optionGameModeView{
-  height: 500px;
+  // height: 500px;
   display: flex;
   flex-direction: column;
   gap: 60px;
@@ -28,7 +28,7 @@
 @media screen and (min-width: 500px) {
   .optionGameModeView{
     flex-direction: row;
-    margin-top: 12%;
+    // margin-top: 12%;
   }
 }
 // Step 1
