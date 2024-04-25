@@ -8,8 +8,13 @@ import { Component, EventEmitter, Input, OnChanges, SimpleChanges } from '@angul
 export class HeaderComponent{
   @Input() headerImgPath:string = '';
   public matchScore: number = 0;
-  public incrementMatchScore(){
+  public incrementMatchScore(gameMode:string):void{
     this.matchScore ++;
+    localStorage.setItem(gameMode, this.matchScore.toString());
+  }
+  public initizeMatchScore(gameMode:string):void{
+    let gameModeValue = localStorage.getItem(gameMode);
+    this.matchScore = gameModeValue ?  parseInt(gameModeValue) : 0;
   }
 
 }

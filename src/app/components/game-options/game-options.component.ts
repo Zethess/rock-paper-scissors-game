@@ -7,8 +7,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class GameOptionsComponent {
   @Output() fisrtPlayerSelection = new EventEmitter<string>();
-  @Input() isOriginalGame:boolean = false;
-  public selectedOption(option:string){
+  @Input() isOriginalGame:string = '';
+  public selectedOption(option:string):void{
     this.fisrtPlayerSelection.emit(option);
   }
 }

@@ -14,7 +14,7 @@ export class AppComponent {
   public optionSelectedBySecondPlayer = '';
   public isFirstPlayerTheWinner:boolean = false;
   public hasToShowModal = false;
-  public isOriginalGame = true;
+  public isOriginalGame:string = '';
   public numberOfOptions = 3;
   public isOptionGameModeSelected = false;
   public initialConfGame: { [key: string]: [string, string] } =
@@ -27,35 +27,49 @@ export class AppComponent {
   ;
   constructor(
   ) {}
-  public gameModeSelection(isBonusGame:boolean = false){
+  public gameModeSelection(isBonusGame:string = 'original'):void{
     this.isOriginalGame = isBonusGame;
-    if (isBonusGame) {
+    if (isBonusGame === 'bonus') {
       this.modalImgRuthPath = this.initialConfGame['modal'][1];
       this.headerImgRuthPath = this.initialConfGame['header'][1];
       this.numberOfOptions = 5;
+
+    }else{
+      this.modalImgRuthPath = this.initialConfGame['modal'][0];
+      this.headerImgRuthPath = this.initialConfGame['header'][0];
+      this.numberOfOptions = 3;
     }
+    this.headerComponent.initizeMatchScore(this.isOriginalGame);
     this.isOptionGameModeSelected = true;
 
   }
-  public selectedOption(option:string){
+  public selectedOption(option:string):void{
     this.optionSelectedByFirstPlayer = option;
   }
-  public increaseMatchScore(eventData:[boolean,string]){
+  public increaseMatchScore(eventData:[boolean,string]):void{
     this.isFirstPlayerTheWinner = eventData[0];
     this.optionSelectedBySecondPlayer = eventData[1];
     if (this.isFirstPlayerTheWinner) {
-      this.headerComponent.incrementMatchScore();
+      this.headerComponent.incrementMatchScore(this.isOriginalGame);
     }
   }
-  public restartGame(){
+  public restartGame():void{
   this.optionSelectedByFirstPlayer = '';
   this.optionSelectedBySecondPlayer = '';
   this.isFirstPlayerTheWinner = false;
   }
-  public changeModalFalse(){
+  public changeModalFalse():void{
     this.hasToShowModal = false;
   }
-  public showModal(){
+  public showModal():void{
     this.hasToShowModal = true;
+  }
+  public changeGame():void{
+    this.isOptionGameModeSelected = false;
+    this.restartGame();
+  }
+  public restartMatch():void{
+    localStorage.removeItem(this.isOriginalGame);
+    this.headerComponent.initizeMatchScore(this.isOriginalGame);
   }
 }

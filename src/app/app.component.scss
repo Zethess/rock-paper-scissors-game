@@ -4,7 +4,6 @@
 
 /*Modal scss*/
 .optionGameModeView{
-  // height: 500px;
   display: flex;
   flex-direction: column;
   gap: 60px;
@@ -28,7 +27,6 @@
 @media screen and (min-width: 500px) {
   .optionGameModeView{
     flex-direction: row;
-    // margin-top: 12%;
   }
 }
 // Step 1
@@ -37,7 +35,6 @@
   background: var(--radial-gradient);
   padding: 0 25px;
   display: grid;
-  // align-items: center;
   justify-items: center;
 }
 
@@ -110,10 +107,11 @@ app-header{
 }
 .button-rule{
   display: flex;
+  gap: 40px;
   button{
     margin: 0 auto;
     font-size: 15px;
-    width: 120px;
+    width: 130px;
     height: 40px;
     border-radius: 8px;
     background-color: transparent;
@@ -121,7 +119,7 @@ app-header{
     color: white;
     letter-spacing: 2px;
   }
-  margin-bottom: 25px;
+  margin-top: 40px;
 }
 .options-selected-container{
     width: 100%;

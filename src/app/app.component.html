@@ -7,10 +7,10 @@
       <app-header  [headerImgPath]="headerImgRuthPath"></app-header>
       <div class="optionGameModeView" *ngIf="!isOptionGameModeSelected; else OptionGameModeSelected">
         <button (click)="gameModeSelection()">Orginal Game</button>
-        <button (click)="gameModeSelection(true)">Additional Game</button>
+        <button (click)="gameModeSelection('bonus')">Additional Game</button>
       </div>
       <ng-template #OptionGameModeSelected>
-      <app-game-options (fisrtPlayerSelection)="selectedOption($event)"  [isOriginalGame]="!isOriginalGame" *ngIf="optionSelectedByFirstPlayer === '';else optionIsSelected "></app-game-options>
+      <app-game-options (fisrtPlayerSelection)="selectedOption($event)"  [isOriginalGame]="isOriginalGame" *ngIf="optionSelectedByFirstPlayer === '';else optionIsSelected "></app-game-options>
       <ng-template #optionIsSelected>
         <div class="options-selected-container">
           <app-game-selections [firstPlayerSelection]="optionSelectedByFirstPlayer" [numberOfSelections]="numberOfOptions" [secondPlayerSelection]="optionSelectedBySecondPlayer" (isFirstPlayerTheWinner)="increaseMatchScore($event)"></app-game-selections>
@@ -18,7 +18,9 @@
         </div>
       </ng-template>
       <div class="button-rule">
-        <button (click)="showModal()">RULES</button>
+        <button *ngIf="optionSelectedBySecondPlayer === ''" (click)="showModal()">RULES</button>
+        <button *ngIf="optionSelectedBySecondPlayer !== ''"(click)="restartMatch()">Restart Score</button>
+        <button *ngIf="optionSelectedBySecondPlayer !== ''"(click)="changeGame()">Change Game</button>
       </div>
     </ng-template>
     </div>

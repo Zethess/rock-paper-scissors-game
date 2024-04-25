@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class GameResultComponent {
   @Input() isFirstPlayerTheWinner:boolean = false;
   @Output() restartButtonPressed = new EventEmitter<void>();
-  public restartGame(){
+  public restartGame():void{
     this.restartButtonPressed.emit();
   }
 }

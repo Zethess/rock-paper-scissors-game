@@ -24,7 +24,7 @@ export class GameSelectionsComponent implements OnChanges {
       }, 1000);
     }
   }
-  private secondSelectionByIA(){
+  private secondSelectionByIA():void{
   this.secondPlayerSelection = Object.keys(this.winMap)[Math.floor(Math.random() * this.numberOfSelections)];
   this.checkIfFirstPlayerWin();
   }
